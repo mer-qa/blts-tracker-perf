@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testdefinition version="1.0">
+
+  <suite name="blts-tracker-perf">
+
+    <set name="blts-tracker-perf">
+
+      <case name="indexing"
+        description="Meassure time to index files"
+        type="Performance"
+        timeout="300">
+        <step>
+          cd
+          /opt/tests/blts-tracker-perf/test-indexing.sh \
+            -o /tmp/blts-tracker-perf.csv 50m
+        </step>
+        <get>
+          <file measurement="true">/tmp/blts-tracker-perf.csv</file>
+        </get>
+      </case>
+
+      <case name="storage-io"
+        description="Meassure time to import and query data"
+        type="Performance"
+        timeout="300">
+        <step>
+          cd
+          /opt/tests/blts-tracker-perf/test-storage-io.sh \
+            -c /opt/tests/blts-tracker-perf/test-storage-io.cnf \
+            -o /tmp/blts-tracker-perf.csv
+        </step>
+        <get>
+          <file measurement="true">/tmp/blts-tracker-perf.csv</file>
+        </get>
+      </case>
+
+    </set>
+
+  </suite>
+
+</testdefinition>

@@ -1,0 +1,58 @@
+[counts]
+
+# Content creation counts
+
+# Contacts
+contacts : 1000
+
+# Locations
+locations : 100
+
+# Emails
+accounts : 3
+folders  : 2
+emails   : 1000
+
+# IM Messages
+comchans : 50
+ims      : 100
+
+# SMS messages
+sms      : 100
+
+# Calls
+calls    : 100
+
+# Feeds
+fchans   : 10
+fms      : 100
+
+# Software
+softcats : 10
+softapps : 50
+
+# Equipment
+equipment : 10
+
+# FILE SYSTEM BASED CONTENT
+
+# Volumes
+volumes  : 5
+
+# Music
+artists  : 50
+albums   : 20
+songs    : 5
+discs    : 2
+
+# Images
+images   : 1000
+
+# Videos
+videos   : 200
+
+# Text documents
+docs     : 100
+
+# Others
+others   : 100
