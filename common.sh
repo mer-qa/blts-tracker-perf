@@ -41,7 +41,6 @@ sandbox_init()
     export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-${SANDBOX_DIR}}
 
     DBUS_SESSION_BUS_ADDRESS__old=${DBUS_SESSION_BUS_ADDRESS}
-    eval $(dbus-launch --sh-syntax)
 }
 
 sandbox_wipe_out()
@@ -59,7 +58,8 @@ sandbox_wipe_out()
 
 store_start()
 {
-    /usr/libexec/tracker-store & sleep 1
+    /usr/libexec/tracker-store &
+    sleep 1
     TRACKER_STORE_PID=$!
 }
 
