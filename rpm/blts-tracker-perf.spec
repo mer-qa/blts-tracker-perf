@@ -16,6 +16,7 @@ License:    GPLv2
 URL:        https://github.com/mer-qa/blts-tracker-perf
 Source0:    %{name}-%{version}.tar.gz
 Source100:  blts-tracker-perf.yaml
+Requires:   dbus-x11
 Requires:   tracker
 Requires:   tracker-tests
 
