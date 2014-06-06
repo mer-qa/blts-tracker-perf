@@ -35,20 +35,21 @@ END
 # later with tracker_config_restore()
 tracker_config_wipe_out()
 {
-    gconftool-2 --dump ${TRACKER_CONF_PREFIX} |tee ${SAVED_TRACKER_CONF} |gconftool-2 --unload -
+    dconf dump ${TRACKER_CONF_PREFIX}/ >${SAVED_TRACKER_CONF}
+    dconf reset -f ${TRACKER_CONF_PREFIX}/
 }
 
 # Restores tracker configuration to the state before tracker_config_wipe_out()
 # was called
 tracker_config_restore()
 {
-    gconftool-2 --dump ${TRACKER_CONF_PREFIX} |gconftool-2 --unload -
-    gconftool-2 --load ${SAVED_TRACKER_CONF}
+    dconf reset -f ${TRACKER_CONF_PREFIX}/
+    dconf load ${TRACKER_CONF_PREFIX}/ <${SAVED_TRACKER_CONF}
 }
 
 tracker_config_set_string_list()
 {
-    gconftool-2 --set "${MINER_FS_CONF_PREFIX}/${1?}" --type list --list-type string "${2?}"
+    dconf write "${MINER_FS_CONF_PREFIX}/${1?}" "@as ${2?}"
 }
 
 test_data_dir_disk_usage()
@@ -183,7 +184,7 @@ INFO "Configuring tracker to only index our test data directory"
 
 tracker_config_wipe_out && cleanup_push tracker_config_restore
 tracker_config_set_string_list index-single-directories "[]"
-tracker_config_set_string_list index-recursive-directories "[${TEST_DATA_DIR}]"
+tracker_config_set_string_list index-recursive-directories "['${TEST_DATA_DIR}']"
 
 INFO "Preparing test data directory"
 
