@@ -21,7 +21,6 @@ This package contains tracker performance tests
 %build
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}/opt/tests/blts-tracker-perf
 install --mode=644 common.sh %{buildroot}/opt/tests/blts-tracker-perf
 install --mode=755 test-indexing.sh %{buildroot}/opt/tests/blts-tracker-perf
